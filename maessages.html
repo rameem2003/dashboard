@@ -50,29 +50,33 @@
             },
           },
         },
-
-        // plugins: [
-        //   require("flowbite/plugin")({
-        //     charts: true,
-        //   }),
-        // ],
       };
     </script>
   </head>
   <body>
     <div class="flex items-start">
       <!-- sidebar start -->
-      <section class="p-4 w-2/12 border-r-[1px] border-[#E5E7EB] h-screen">
+      <section
+        id="sidebar"
+        class="p-4 absolute z-[100] top-0 left-[-100%] w-[300px] bg-white lg:static lg:w-2/12 border-r-[1px] border-[#E5E7EB] h-screen"
+      >
         <div class="flex items-center justify-between">
           <img src="./images/logo.png" alt="logo" />
 
-          <button class="h-[24px] w-[24] rounded-[4px] bg-[#F3F4F6]"><></button>
+          <button
+            id="togClose"
+            class="h-[24px] w-[24] rounded-[4px] bg-[#F3F4F6]"
+          >
+            <>
+          </button>
         </div>
 
         <ul class="mt-[32px]">
           <li class="mb-2">
-            <a href="/" class="px-2 py-3 rounded-[6px] block">
-              <div class="text-[#6C737F] flex items-center gap-3">
+            <a href="/">
+              <div
+                class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
+              >
                 <i class="fa-light fa-house-chimney-window"></i>
                 <span class="font-inter font-medium text-[14px] leading-[20px]"
                   >Home</span
@@ -82,8 +86,10 @@
           </li>
 
           <li class="mb-2">
-            <a href="" class="px-2 py-3 rounded-[6px] block">
-              <div class="text-[#6C737F] flex items-center gap-3">
+            <a href="">
+              <div
+                class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
+              >
                 <i class="fa-light fa-calendar"></i>
                 <span class="font-inter font-medium text-[14px] leading-[20px]"
                   >Schedule</span
@@ -93,8 +99,8 @@
           </li>
           <li class="mb-2">
             <a
-              class="flex items-center justify-between px-2 py-3 bg-green-700 rounded-[6px] text-white"
-              href=""
+              class="flex items-center justify-between bg-green-700 px-2 py-3 rounded-[6px]"
+              href="./maessages.html"
             >
               <div class="text-white flex items-center gap-3">
                 <i class="fa-regular fa-comment-dots"></i>
@@ -108,8 +114,10 @@
           </li>
 
           <li class="mb-2">
-            <a href="" class="px-2 py-3 rounded-[6px] block">
-              <div class="text-[#6C737F] flex items-center gap-3">
+            <a href="">
+              <div
+                class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
+              >
                 <i class="fa-light fa-circle-user"></i>
                 <span class="font-inter font-medium text-[14px] leading-[20px]"
                   >Student</span
@@ -122,15 +130,20 @@
       <!-- sidebar end -->
 
       <!-- main section start -->
-      <main class="w-10/12 bg-[#f3f4f6] h-screen">
+      <main class="w-full lg:w-10/12 bg-[#f3f4f6] h-screen">
         <!-- header start -->
         <header class="py-5 px-7 bg-white border-b-[1px] border-[#E5E7EB]">
           <div class="flex items-center justify-between">
-            <div>
+            <div class="flex gap-3 items-center">
+              <i
+                id="tog"
+                class="fa-solid fa-bars cursor-pointer block lg:hidden"
+              ></i>
+
               <h1
                 class="font-inter font-semibold text-[24px] leading-[32px] text-font"
               >
-                Masseges
+                Hello, Charlie 👋
               </h1>
             </div>
 
@@ -144,7 +157,9 @@
         <!-- header end -->
 
         <div class="flex">
-          <div class="w-3/12 border-r-[1px] border-[#E5E7EB] h-screen">
+          <div
+            class="w-6/12 lg:w-3/12 border-r-[1px] border-[#E5E7EB] h-screen"
+          >
             <button
               id="calander"
               class="px-4 py-2 rounded-[8px] bg-green-700 text-white font-inter font-bold m-2 flex items-center gap-2"
@@ -159,9 +174,9 @@
 
     <div
       id="windows"
-      class="w-full h-screen fixed bg-gray-400/80 top-0 left-0 backdrop-blur-[0.5] flex items-center justify-center hidden"
+      class="w-full h-screen fixed z-[10000] bg-gray-400/80 top-0 left-0 backdrop-blur-[0.5] flex items-center justify-center hidden"
     >
-      <div class="w-[700px] h-[590px] bg-white rounded-[8px]">
+      <div class="w-[700px] bg-white rounded-[8px]">
         <div class="p-6 border-b-[1px] border-[#E5E7EB]">
           <div class="flex items-center justify-between">
             <h1 class="font-inter font-semibold text-[18px] text-font">
@@ -580,156 +595,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div>
-              <h1
-                class="font-inter font-semibold text-[16px] leading-[24px] text-[384250]"
-              >
-                Oct 2023
-              </h1>
-            </div>
-
-            <div class="flex justify-between mt-3">
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >Mo</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >Tu</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >We</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >Th</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >Fr</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >Sat</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >Su</span
-              >
-            </div>
-
-            <div class="flex justify-between mt-3">
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >26</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >27</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >28</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >23</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >30</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >31</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >1</span
-              >
-            </div>
-            <div class="flex justify-between mt-3">
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >2</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >3</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >4</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >5</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >6</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >7</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >8</span
-              >
-            </div>
-
-            <div class="flex justify-between mt-3">
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >9</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >10</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >11</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >12</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >13</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >14</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >15</span
-              >
-            </div>
-
-            <div class="flex justify-between mt-3">
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >16</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >17</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >18</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >19</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >20</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >21</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >22</span
-              >
-            </div>
-
-            <div class="flex justify-between mt-3">
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >23</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >24</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >25</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >26</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >27</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >28</span
-              >
-              <span class="font-inter font-medium text-[14px] text-[#344054]"
-                >29</span
-              >
-            </div> -->
           </div>
           <div class="w-1/2 pl-8">
             <h1
@@ -766,11 +631,43 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="flex items-center justify-center gap-4 p-6 border-t-[1px] border-[#EAECF0]"
+        >
+          <button
+            class="py-[10px] px-[123px] font-inter font-semibold text-[16px] text-font leading-[24px] rounded-[8px] border-[1px] border-[#D0D5DD]"
+          >
+            Cancel
+          </button>
+          <button
+            class="py-[10px] px-[123px] font-inter font-semibold text-[16px] text-white bg-green-700 leading-[24px] rounded-[8px] border-[1px] border-[#D0D5DD]"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="./app.js"></script>
-    <script src="./date.js"></script>
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/date.js"></script>
+    <!-- <script>
+      const tog = document.getElementById("tog");
+      console.log(tog);
+      const sidebar = document.getElementById("sidebar");
+      console.log(sidebar);
+      const togClose = document.getElementById("togClose");
+
+      tog.addEventListener("click", () => {
+        sidebar.classList.add("left-0");
+        console.log("fwe");
+      });
+
+      togClose.addEventListener("click", () => {
+        sidebar.classList.remove("left-0");
+      });
+    </script> -->
   </body>
 </html>
