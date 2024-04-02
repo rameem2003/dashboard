@@ -50,6 +50,12 @@
             },
           },
         },
+
+        // plugins: [
+        //   require("flowbite/plugin")({
+        //     charts: true,
+        //   }),
+        // ],
       };
     </script>
   </head>
@@ -65,48 +71,59 @@
 
         <ul class="mt-[32px]">
           <li class="mb-2">
-            <div
-              class="px-2 py-3 bg-primary rounded-[6px] text-white flex items-center gap-3"
-            >
-              <i class="fa-light fa-house-chimney-window"></i>
-              <span class="font-inter font-medium text-[14px] leading-[20px]"
-                >Home</span
+            <a href="/">
+              <div
+                class="px-2 py-3 bg-green-700 rounded-[6px] text-white flex items-center gap-3"
               >
-            </div>
+                <i class="fa-light fa-house-chimney-window"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Home</span
+                >
+              </div>
+            </a>
           </li>
 
           <li class="mb-2">
-            <div
-              class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
-            >
-              <i class="fa-light fa-calendar"></i>
-              <span class="font-inter font-medium text-[14px] leading-[20px]"
-                >Schedule</span
+            <a href="">
+              <div
+                class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
               >
-            </div>
+                <i class="fa-light fa-calendar"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Schedule</span
+                >
+              </div>
+            </a>
           </li>
-          <li class="mb-2 flex items-center justify-between">
-            <div
-              class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
+          <li class="mb-2">
+            <a
+              class="flex items-center justify-between"
+              href="./maessages.html"
             >
-              <i class="fa-regular fa-comment-dots"></i>
-              <span class="font-inter font-medium text-[14px] leading-[20px]"
-                >Messages</span
+              <div
+                class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
               >
-            </div>
+                <i class="fa-regular fa-comment-dots"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Messages</span
+                >
+              </div>
 
-            <div class="h-[12px] w-[12px] rounded-full bg-[#F79009]"></div>
+              <div class="h-[12px] w-[12px] rounded-full bg-[#F79009]"></div>
+            </a>
           </li>
 
           <li class="mb-2">
-            <div
-              class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
-            >
-              <i class="fa-light fa-circle-user"></i>
-              <span class="font-inter font-medium text-[14px] leading-[20px]"
-                >Student</span
+            <a href="">
+              <div
+                class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
               >
-            </div>
+                <i class="fa-light fa-circle-user"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Student</span
+                >
+              </div>
+            </a>
           </li>
         </ul>
       </section>
@@ -134,7 +151,7 @@
         </header>
         <!-- header end -->
 
-        <section class="px-7">
+        <section class="px-7 h-[330px]">
           <div class="flex items-center justify-between mt-7 gap-7">
             <div class="w-9/12 p-5 bg-white rounded-[8px]">
               <div class="flex items-center justify-between">
@@ -193,9 +210,19 @@
                   </ul>
                 </div>
               </div>
+
+              <div>
+                <div class="w-full bg-white p-4 md:p-6">
+                  <div class="flex justify-between mb-5"></div>
+                  <div id="line-chart"></div>
+                  <div
+                    class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between mt-2.5"
+                  ></div>
+                </div>
+              </div>
             </div>
 
-            <div class="w-3/12 p-5 bg-white rounded-[8px]">
+            <div class="w-3/12 p-5 h-[375px] bg-white rounded-[8px]">
               <img class="mx-auto mt-10" src="./images/Icon.png" alt="icon" />
 
               <h2
@@ -243,5 +270,8 @@
       </main>
       <!-- main section end -->
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masseges</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#235940",
+              font: "#111927",
+            },
+
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+          },
+        },
+
+        // plugins: [
+        //   require("flowbite/plugin")({
+        //     charts: true,
+        //   }),
+        // ],
+      };
+    </script>
+  </head>
+  <body>
+    <div class="flex items-start">
+      <!-- sidebar start -->
+      <section class="p-4 w-2/12 border-r-[1px] border-[#E5E7EB] h-screen">
+        <div class="flex items-center justify-between">
+          <img src="./images/logo.png" alt="logo" />
+
+          <button class="h-[24px] w-[24] rounded-[4px] bg-[#F3F4F6]"><></button>
+        </div>
+
+        <ul class="mt-[32px]">
+          <li class="mb-2">
+            <a href="/" class="px-2 py-3 rounded-[6px] block">
+              <div class="text-[#6C737F] flex items-center gap-3">
+                <i class="fa-light fa-house-chimney-window"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Home</span
+                >
+              </div>
+            </a>
+          </li>
+
+          <li class="mb-2">
+            <a href="" class="px-2 py-3 rounded-[6px] block">
+              <div class="text-[#6C737F] flex items-center gap-3">
+                <i class="fa-light fa-calendar"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Schedule</span
+                >
+              </div>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a
+              class="flex items-center justify-between px-2 py-3 bg-green-700 rounded-[6px] text-white"
+              href=""
+            >
+              <div class="text-white flex items-center gap-3">
+                <i class="fa-regular fa-comment-dots"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Messages</span
+                >
+              </div>
+
+              <div class="h-[12px] w-[12px] rounded-full bg-[#F79009]"></div>
+            </a>
+          </li>
+
+          <li class="mb-2">
+            <a href="" class="px-2 py-3 rounded-[6px] block">
+              <div class="text-[#6C737F] flex items-center gap-3">
+                <i class="fa-light fa-circle-user"></i>
+                <span class="font-inter font-medium text-[14px] leading-[20px]"
+                  >Student</span
+                >
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!-- sidebar end -->
+
+      <!-- main section start -->
+      <main class="w-10/12 bg-[#f3f4f6] h-screen">
+        <!-- header start -->
+        <header class="py-5 px-7 bg-white border-b-[1px] border-[#E5E7EB]">
+          <div class="flex items-center justify-between">
+            <div>
+              <h1
+                class="font-inter font-semibold text-[24px] leading-[32px] text-font"
+              >
+                Masseges
+              </h1>
+            </div>
+
+            <div class="flex items-center gap-6">
+              <i class="fa-regular fa-bell scale-125"></i>
+
+              <img src="./images/avatar.png" alt="avatar" />
+            </div>
+          </div>
+        </header>
+        <!-- header end -->
+
+        <div class="flex">
+          <div class="w-3/12 border-r-[1px] border-[#E5E7EB] h-screen">
+            <button
+              id="calander"
+              class="px-4 py-2 rounded-[8px] bg-green-700 text-white font-inter font-bold m-2 flex items-center gap-2"
+            >
+              <i class="fa-light fa-calendar"></i> Shedule Sessions
+            </button>
+          </div>
+        </div>
+      </main>
+      <!-- main section end -->
+    </div>
+
+    <div
+      id="windows"
+      class="w-full h-screen fixed bg-gray-400/80 top-0 left-0 backdrop-blur-[0.5] flex items-center justify-center hidden"
+    >
+      <div class="w-[700px] h-[590px] bg-white rounded-[8px]">
+        <div class="p-6 border-b-[1px] border-[#E5E7EB]">
+          <div class="flex items-center justify-between">
+            <h1 class="font-inter font-semibold text-[18px] text-font">
+              Schedule Sessions (45 Minutes)
+            </h1>
+            <i id="close" class="fa-solid fa-xmark"></i>
+          </div>
+
+          <p
+            class="font-inter font-normal text-[14px] leading-[20px] text-[#475467]"
+          >
+            Choose your availability to have sessions with Charlie John
+          </p>
+        </div>
+
+        <div class="flex items-start justify-between p-6">
+          <div class="w-1/2 border-r-[1px] border-[#E5E7EB]">
+            <div class="max-w-sm w-full">
+              <div class="md:p-8 p-5 bg-white rounded-t">
+                <div class="px-4 flex items-center justify-between">
+                  <div class="flex items-center justify-between w-full">
+                    <button
+                      aria-label="calendar backward"
+                      class="focus:text-gray-400 hover:text-gray-400 text-gray-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-chevron-left"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <polyline points="15 6 9 12 15 18" />
+                      </svg>
+                    </button>
+
+                    <span
+                      tabindex="0"
+                      class="focus:outline-none text-base font-bold text-gray-800"
+                      >October 2020</span
+                    >
+                    <button
+                      aria-label="calendar forward"
+                      class="focus:text-gray-400 hover:text-gray-400 ml-3 text-gray-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-chevron-right"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <polyline points="9 6 15 12 9 18" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between pt-12 overflow-x-auto"
+                >
+                  <table class="w-full">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="w-full flex justify-center">
+                            <p
+                              class="text-base font-medium text-center text-gray-800"
+                            >
+                              Mo
+                            </p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="w-full flex justify-center">
+                            <p
+                              class="text-base font-medium text-center text-gray-800"
+                            >
+                              Tu
+                            </p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="w-full flex justify-center">
+                            <p
+                              class="text-base font-medium text-center text-gray-800"
+                            >
+                              We
+                            </p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="w-full flex justify-center">
+                            <p
+                              class="text-base font-medium text-center text-gray-800"
+                            >
+                              Th
+                            </p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="w-full flex justify-center">
+                            <p
+                              class="text-base font-medium text-center text-gray-800"
+                            >
+                              Fr
+                            </p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="w-full flex justify-center">
+                            <p
+                              class="text-base font-medium text-center text-gray-800"
+                            >
+                              Sa
+                            </p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="w-full flex justify-center">
+                            <p
+                              class="text-base font-medium text-center text-gray-800"
+                            >
+                              Su
+                            </p>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="pt-6">
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          ></div>
+                        </td>
+                        <td class="pt-6">
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          ></div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          ></div>
+                        </td>
+                        <td class="pt-6">
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">1</p>
+                          </div>
+                        </td>
+                        <td class="pt-6">
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">2</p>
+                          </div>
+                        </td>
+                        <td class="pt-6">
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">3</p>
+                          </div>
+                        </td>
+                        <td class="pt-6">
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">4</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="date">
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">5</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">6</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">7</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-full h-full">
+                            <div
+                              class="flex items-center justify-center w-full rounded-full cursor-pointer"
+                            >
+                              <a
+                                role="link"
+                                tabindex="0"
+                                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-500 hover:bg-indigo-500 text-base w-8 h-8 flex items-center justify-center font-medium text-white bg-indigo-700 rounded-full"
+                                >8</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">9</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">10</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">11</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              12
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              13
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              14
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              15
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              16
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">17</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">18</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              19
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              20
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              21
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              22
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              23
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">24</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500">25</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              26
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              27
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              28
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              29
+                            </p>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                          >
+                            <p class="text-base text-gray-500 font-medium">
+                              30
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- <div>
+              <h1
+                class="font-inter font-semibold text-[16px] leading-[24px] text-[384250]"
+              >
+                Oct 2023
+              </h1>
+            </div>
+
+            <div class="flex justify-between mt-3">
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >Mo</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >Tu</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >We</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >Th</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >Fr</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >Sat</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >Su</span
+              >
+            </div>
+
+            <div class="flex justify-between mt-3">
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >26</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >27</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >28</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >23</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >30</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >31</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >1</span
+              >
+            </div>
+            <div class="flex justify-between mt-3">
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >2</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >3</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >4</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >5</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >6</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >7</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >8</span
+              >
+            </div>
+
+            <div class="flex justify-between mt-3">
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >9</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >10</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >11</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >12</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >13</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >14</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >15</span
+              >
+            </div>
+
+            <div class="flex justify-between mt-3">
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >16</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >17</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >18</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >19</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >20</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >21</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >22</span
+              >
+            </div>
+
+            <div class="flex justify-between mt-3">
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >23</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >24</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >25</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >26</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >27</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >28</span
+              >
+              <span class="font-inter font-medium text-[14px] text-[#344054]"
+                >29</span
+              >
+            </div> -->
+          </div>
+          <div class="w-1/2 pl-8">
+            <h1
+              class="mt-[30px] font-inter font-semibold text-[16px] leading-[24px] text-[#384250]"
+            >
+              Select the available hours
+            </h1>
+
+            <div class="mt-6">
+              <p
+                class="font-inter font-medium text-[14px] leading-[20px] text-[#344054]"
+              >
+                10 Oct
+              </p>
+
+              <div class="flex items-center justify-between mt-2">
+                <span
+                  class="py-4 px-[14px] border-[1px] border-font rounded-[8px] font-inter font-normal text-[16px] leading-[24px] text-font"
+                  >01.00 pm</span
+                >
+                <span>-</span>
+                <span
+                  class="py-4 px-[14px] border-[1px] border-font rounded-[8px] font-inter font-normal text-[16px] leading-[24px] text-font"
+                  >04.00 pm</span
+                >
+                <i class="fa-solid fa-trash"></i>
+              </div>
+
+              <button
+                class="py-1 px-[102px] rounded-[8px] mt-[10px] font-inter font-semibold text-[12px] leading-[18px] text-primary bg-[#E9EEEC]"
+              >
+                + Add More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="./app.js"></script>
+    <script src="./date.js"></script>
+  </body>
+</html>
