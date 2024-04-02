@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daskboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#235940",
+              font: "#111927",
+            },
+
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="flex items-start">
+      <!-- sidebar start -->
+      <section class="p-4 w-2/12 border-r-[1px] border-[#E5E7EB] h-screen">
+        <div class="flex items-center justify-between">
+          <img src="./images/logo.png" alt="logo" />
+
+          <button class="h-[24px] w-[24] rounded-[4px] bg-[#F3F4F6]"><></button>
+        </div>
+
+        <ul class="mt-[32px]">
+          <li class="mb-2">
+            <div
+              class="px-2 py-3 bg-primary rounded-[6px] text-white flex items-center gap-3"
+            >
+              <i class="fa-light fa-house-chimney-window"></i>
+              <span class="font-inter font-medium text-[14px] leading-[20px]"
+                >Home</span
+              >
+            </div>
+          </li>
+
+          <li class="mb-2">
+            <div
+              class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
+            >
+              <i class="fa-light fa-calendar"></i>
+              <span class="font-inter font-medium text-[14px] leading-[20px]"
+                >Schedule</span
+              >
+            </div>
+          </li>
+          <li class="mb-2 flex items-center justify-between">
+            <div
+              class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
+            >
+              <i class="fa-regular fa-comment-dots"></i>
+              <span class="font-inter font-medium text-[14px] leading-[20px]"
+                >Messages</span
+              >
+            </div>
+
+            <div class="h-[12px] w-[12px] rounded-full bg-[#F79009]"></div>
+          </li>
+
+          <li class="mb-2">
+            <div
+              class="px-2 py-3 rounded-[6px] text-[#6C737F] flex items-center gap-3"
+            >
+              <i class="fa-light fa-circle-user"></i>
+              <span class="font-inter font-medium text-[14px] leading-[20px]"
+                >Student</span
+              >
+            </div>
+          </li>
+        </ul>
+      </section>
+      <!-- sidebar end -->
+
+      <!-- main section start -->
+      <main class="w-10/12 bg-[#f3f4f6] h-screen">
+        <!-- header start -->
+        <header class="py-5 px-7 bg-white border-b-[1px] border-[#E5E7EB]">
+          <div class="flex items-center justify-between">
+            <div>
+              <h1
+                class="font-inter font-semibold text-[24px] leading-[32px] text-font"
+              >
+                Hello, Charlie 👋
+              </h1>
+            </div>
+
+            <div class="flex items-center gap-6">
+              <i class="fa-regular fa-bell scale-125"></i>
+
+              <img src="./images/avatar.png" alt="avatar" />
+            </div>
+          </div>
+        </header>
+        <!-- header end -->
+
+        <section class="px-7">
+          <div class="flex items-center justify-between mt-7 gap-7">
+            <div class="w-9/12 p-5 bg-white rounded-[8px]">
+              <div class="flex items-center justify-between">
+                <h2
+                  class="font-inter font-semibold text-[24px] leading-[32px] text-font"
+                >
+                  Tutoring Statistics
+                </h2>
+
+                <button
+                  id="dropdownDefaultButton"
+                  data-dropdown-toggle="dropdown"
+                  class="p-[10px] font-inter font-semibold text-[14px] leading-[20px] text-[#344054] rounded-[8px] border-[1px] border-[#d0d5dd]"
+                  type="button"
+                >
+                  <i class="fa-light fa-calendar"></i> This Week
+                </button>
+
+                <!-- Dropdown menu -->
+                <div
+                  id="dropdown"
+                  class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                >
+                  <ul
+                    class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownDefaultButton"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >Dashboard</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >Settings</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >Earnings</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >Sign out</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-3/12 p-5 bg-white rounded-[8px]">
+              <img class="mx-auto mt-10" src="./images/Icon.png" alt="icon" />
+
+              <h2
+                class="font-inter font-semibold text-[24px] leading-[32px] text-font text-center mt-[37px]"
+              >
+                Silver Award
+              </h2>
+
+              <p
+                class="font-inter font-normal text-[14px] leading-[20px] text-[#6c737f] text-center pt-2"
+              >
+                Great job, keep it up!
+              </p>
+
+              <div
+                class="relative w-full h-[8px] rounded-[8px] bg-[#EAECF0] mt-[37px]"
+              >
+                <div
+                  class="absolute w-[40%] h-full bg-[#86CB3C] rounded-[8px]"
+                ></div>
+              </div>
+
+              <div class="mt-3 flex items-center justify-between">
+                <p
+                  class="font-inter font-medium text-[14px] leading-[20px] text-font"
+                >
+                  9 / 40
+                  <span class="font-inter font-normal text-[#6C737F]"
+                    >hours</span
+                  >
+                </p>
+
+                <div class="flex items-center gap-1">
+                  <img src="./images/crown.png" alt="crown" />
+
+                  <span
+                    class="font-inter font-semibold text-[14px] leading-[20px] text-[#fdb022]"
+                    >Gold</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- main section end -->
+    </div>
+  </body>
+</html>
